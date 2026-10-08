@@ -57,11 +57,24 @@ namespace PRJ2.API.Repositories
 
         public async Task<DoctoR> UpdateAsync(DoctoR doctor)
         {
-            dbcontext.doctor.Update(doctor);
+            var existingDoctor = await dbcontext.doctor
+       .FirstOrDefaultAsync(x => x.Id == doctor.Id);
+
+            if (existingDoctor == null)
+            {
+                return null;
+            }
+
+            existingDoctor.Name = doctor.Name;
+            existingDoctor.Specialization = doctor.Specialization;
+            existingDoctor.PhoneNumber = doctor.PhoneNumber;
+            existingDoctor.Email = doctor.Email;
+
             await dbcontext.SaveChangesAsync();
 
-            return doctor;
+            return existingDoctor;
         }
     }
-}
+ }
+
 
