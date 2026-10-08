@@ -16,6 +16,7 @@ builder.Services.AddAutoMapper(cfg =>
     cfg.AddProfile<PatientsMappingProfile>();
     cfg.AddProfile<DoctorMappingProfile>();
     cfg.AddProfile<DepartmentMappingProfile>();
+    cfg.AddProfile<ApointmetMappingProfile>();
 });
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -26,6 +27,7 @@ builder.Services.AddDbContext<HCMSDbContext>(options =>
 builder.Services.AddScoped<IPatientsRepository, SQLRepositoryBase>();
 builder.Services.AddScoped<IDoctoRRepository, SQLDoctorRepository>();
 builder.Services.AddScoped<IDepartmentRepository, SQLDepartmentRepository>();
+builder.Services.AddScoped<IAppointmentRepository, SQLAppointmentRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
