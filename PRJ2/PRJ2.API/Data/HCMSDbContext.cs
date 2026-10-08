@@ -13,6 +13,7 @@ using PRJ2.API.Models;
             }
 
             public DbSet<Patients> patients { get; set; }
+            public DbSet<DoctoR> doctor {  get; set; }
         }
     }
 

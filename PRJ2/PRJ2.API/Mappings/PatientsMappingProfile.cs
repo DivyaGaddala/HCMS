@@ -8,7 +8,7 @@ namespace PRJ2.API.Mappings
     {
         public PatientsMappingProfile()
         {
-            CreateMap<Patients, PatientsDTO>();
+            CreateMap<Patients, PatientsDTO>().ReverseMap();    
         }
     }
 }

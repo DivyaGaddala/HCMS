@@ -14,6 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddAutoMapper(cfg =>
 {
     cfg.AddProfile<PatientsMappingProfile>();
+    cfg.AddProfile<DoctorMappingProfile>();
 });
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -22,8 +23,10 @@ builder.Services.AddDbContext<HCMSDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("HCMSconnection"));
 });
 builder.Services.AddScoped<IPatientsRepository, SQLRepositoryBase>();
+builder.Services.AddScoped<IDoctoRRepository, SQLDoctorRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 
 var app = builder.Build();
 
