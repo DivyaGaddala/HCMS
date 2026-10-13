@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 using PRJ2.API.DTO;
@@ -9,6 +10,7 @@ namespace PRJ2.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class AppointmentController : Controller
     {
         private readonly IAppointmentRepository repository;

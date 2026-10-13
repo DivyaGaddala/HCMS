@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PRJ2.API.DTO;
@@ -7,6 +8,7 @@ using PRJ2.API.Repositories;
 
 namespace PRJ2.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PatientsController : ControllerBase

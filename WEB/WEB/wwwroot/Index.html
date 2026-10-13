@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function SayHello()
+        {
+            //var name =  document.forms[0].elements[0].value
+            // var name = document.forms["form1"].elements["txtName"].value
+            var name = document.form1.txtName.value
+    
+            alert("Hello" + name)
+          
+        }
+
+        function CopyTextFromT1ToT2()
+        {
+            var v1 = document.form1.t1.value;
+            document.form1.t2.value = v1.toUpperCase();
+    
+        }
+        function calculate()
+        {
+            var n1 = document.form1.txtN2.value;
+            var n2 = document.form1.txtN3.value;
+            var selind = document.form1.ddlOperation.selectedIndex;
+            var selop = document.form1.ddlOperation.options[selind]
+            
+            switch (selop.value)
+            {
+                case "+":
+                document.form1.txtResult.value = n1+ n2;
+                    break;
+                case "-":
+                    document.form1.txtResult.value = n1- n2;
+                    break;
+                case "*":
+                    document.form1.txtResult.value = n1 * n2;
+                    break;
+                case "/":
+                    document.form1.txtResult.value = n1 / n2;
+                    break;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="form1" action="">
+        Name:<input type="text" name="txtName" value=""/>
+        <br />
+        <input type="button" name=" =btnSayhello" value="Say Hello"
+               onclick='SayHello()'/>
+
+        <hr />
+        <input  type="text"  name="t1" value="" onkeypress="CopyTextFromT1ToT2()"/>
+        <input  type="text" name="t2" value=""/>
+
+        <hr />
+        <input type="text" name="txtN2" value="10" />
+        <input  type="text" name="txtN3" value="2" />
+        <select name="ddlOperation" onchange="calculate()">
+            <option value="+">Add</option>
+            <option value ="-">Subtraction</option>
+            <option value ="*">Multiplication</option>
+            <option value ="/">Division</option>
+        </select>
+
+        <input type="text" name="txtResult" value="12" readonly="readonly"/>
+
+    </form>
+</body>
+</html>

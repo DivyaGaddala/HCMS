@@ -17,6 +17,9 @@ using PRJ2.API.Models;
 
            public DbSet<Department> departments { get; set; }
            public DbSet<Appointment> Appointmentsss { get; set; }
+          public DbSet<Prescription> prescription { get; set; }
+        public DbSet<User> user { get; set; }
+
         }
     }
 
